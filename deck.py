@@ -7,3 +7,4 @@ def makeDeck():
          deck.append(Card(value,symbol))
     return deck
 D = makeDeck()
+print (D)

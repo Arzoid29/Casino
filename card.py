@@ -12,6 +12,8 @@ class Card :
             self.name = Card.value_to_letters[value] + "_" + symbol
         except:
             self.name = str(value) + "_" + symbol
+    def __repr__(self):
+        return f"{self.name}"
 
 
 
