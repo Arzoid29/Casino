@@ -1,11 +1,12 @@
 class Player:
+    plist = []
     def __init__(self,name):
         self.name = name
         self.score =0
         self.hand = []
         self.off_hand = []
+        Player.plist.append(self)
     def play(self,table):
-        card_playing = input("what card are you gonna play?")
 
         def check_cards(Input,list_of_cards):
             try:
@@ -23,4 +24,11 @@ class Player:
                         return card
                 print ("Card is not found")
                 self.play(table)
+        def trail(self,card):
+            table.append(card)
+            self.hand.remove(card)
+            
+        card_playing = input("what card are you gonna play?")
         card_playing = check_cards(card_playing,self.hand)
+        option = input("What you want to do with the card?(trail)")
+        
