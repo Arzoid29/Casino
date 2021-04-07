@@ -6,5 +6,3 @@ def makeDeck():
         for value in range(1,14):
          deck.append(Card(value,symbol))
     return deck
-D = makeDeck()
-print (D)
