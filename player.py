@@ -1,3 +1,4 @@
+from table import Table
 class Player:
     plist = []
     def __init__(self,name):
@@ -25,7 +26,7 @@ class Player:
                 print ("Card is not found")
                 self.play(table)
         def trail(card):
-            table.append(card)
+            table.on_table.append(card)
             self.hand.remove(card)
         
         
@@ -33,5 +34,10 @@ class Player:
         card_playing = check_cards(card_playing,self.hand)
         option = input("What you want to do with the card?(trail)")
 
-        
+        def options(option):
+            if option == "trail":
+                trail(card_playing)
+            elif option =="":
+                pass
+        options(option)
         

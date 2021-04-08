@@ -1,6 +1,4 @@
 from card import Card
-from random import shuffle
-import random
 import random as rd
 def makeDeck():
     deck = []
