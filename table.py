@@ -1,10 +1,11 @@
 from deck import makeDeck
+import random
 class Table:
     def __init__(self):
         self.list_of_players = []
         self.on_table= []
         self.deck = makeDeck()
-        
+       
         for i in range(0,4):
             self.on_table.append(self.deck.pop())
         
