@@ -1,4 +1,5 @@
 from table import Table
+from card import Card
 class Player:
     plist = []
     def __init__(self,name):
@@ -13,7 +14,6 @@ class Player:
             try:
                 H = int(Input)
                 if H < len(list_of_cards):
-                    print("Success")
                     return list_of_cards[H]
                 else:
                     print("Input is out of range")
@@ -21,23 +21,33 @@ class Player:
             except:
                 for card in list_of_cards:
                     if Input == card.name:
-                        print("Success")
                         return card
                 print ("Card is not found")
                 self.play(table)
+    
         def trail(card):
             table.on_table.append(card)
             self.hand.remove(card)
-        
-        
-        card_playing = input("what card are you gonna play?")
-        card_playing = check_cards(card_playing,self.hand)
-        option = input("What you want to do with the card?(trail)")
-
+    
+        def capture(card):
+            card_to_capture = check_cards(input("What card do you want to capture?"),table.on_table)
+            if card.value == card_to_capture.value:
+                 self.off_hand.append(card)
+                 self.off_hand.append(card_to_capture)
+                 table.on_table.remove(card_to_capture)
+                 self.hand.remove(card)
+            else:
+                print("The values are not the same")
+                self.play(table)
         def options(option):
             if option == "trail":
                 trail(card_playing)
-            elif option =="":
-                pass
-        options(option)
+            elif option =="capture" :
+                capture(card_playing)
+            else:
+                self.play(table)
         
+        card_playing = input("what card are you gonna play?")
+        card_playing = check_cards(card_playing,self.hand)
+        option = input("What you want to do with the card?(trail),(capture)")
+        options(option)
