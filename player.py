@@ -40,13 +40,25 @@ class Player:
             else:
                 print("The values are not the same")
                 self.play(table)
+        def build(card):
+            number_of_cards = int(input("how many cards do you want to use? :"))
+            building = []
+            while number_of_cards > 0:
+                card_to_build = check_cards(input("with wich card do you want to build?"),table.on_table)
+                building.append(card_to_build)
+                self.hand.remove(card)
+                table.on_table.remove(card_to_build)
+                number_of_cards =-1
+
+            o = Build (card_playing,building)
+            table.on_table.append(o)
         def options(option):
             if option == "trail":
                 trail(card_playing)
             elif option =="capture" :
                 capture(card_playing)
             elif option == "build":
-                Build(on_table,card_playing)
+                build(card_playing)
             else:
                 self.play(table)
         
