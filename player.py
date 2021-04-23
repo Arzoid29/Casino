@@ -1,5 +1,6 @@
 from table import Table
 from card import Card
+from build import Build
 class Player:
     plist = []
     def __init__(self,name):
@@ -44,6 +45,8 @@ class Player:
                 trail(card_playing)
             elif option =="capture" :
                 capture(card_playing)
+            elif option == "build":
+                Build(on_table,card_playing)
             else:
                 self.play(table)
         
