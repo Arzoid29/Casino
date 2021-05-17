@@ -25,8 +25,16 @@ class Player:
                         return card
                 print ("Card is not found")
                 self.play(table)
+        def check(Input,list_of_cards):
+                for card in list_of_cards:
+                    if Input == card.value:
+                        return card
+                print ("You can capture")
+                self.play(table)
     
         def trail(card):
+            if check(card,table.on_table) == card:
+                option != "trail"
             table.on_table.append(card)
             self.hand.remove(card)
     
@@ -50,12 +58,15 @@ class Player:
                 table.on_table.remove(card_to_build)
                 number_of_cards =-1
 
-            o = Build (card_playing,building)
+            o = Build(card,building)
             table.on_table.append(o)
+            if o == True:
+                option != "trail"
+        
         def options(option):
             if option == "trail":
                 trail(card_playing)
-            elif option =="capture" :
+            elif option =="capture":
                 capture(card_playing)
             elif option == "build":
                 build(card_playing)
@@ -64,5 +75,5 @@ class Player:
         
         card_playing = input("what card are you gonna play?")
         card_playing = check_cards(card_playing,self.hand)
-        option = input("What you want to do with the card?(trail),(capture)")
+        option = input("What you want to do with the card?(trail),(capture),(build):")
         options(option)
