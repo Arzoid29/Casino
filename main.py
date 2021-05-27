@@ -6,15 +6,22 @@ if __name__ == '__main__':
     table = Table()
     table.list_of_players = Player.plist
     
-    table.deal()
     
-    print(table.on_table)
-    print(player1.hand)
+    while True:
+        while True:
+            if table.deck == []:
+                table.score(Player.plist)
+            a = 3
+            table.deal()
+            while a >= 0:
+                for p in Player.plist:
+                    print(table.on_table)
+                    print(player1.hand)
     
-    player1.play(table)
+                    p.play(table)
     
-    print(table.on_table)
-    print(player1.hand)
-    print(player1.off_hand)
-    
+                    print(table.on_table)
+                    print(player1.hand)
+                    print(player1.off_hand)
+                a -= 1
     

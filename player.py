@@ -18,23 +18,15 @@ class Player:
                     return list_of_cards[H]
                 else:
                     print("Input is out of range")
-                    self.play(table)
+                    return self.play(table)
             except:
                 for card in list_of_cards:
                     if Input == card.name:
                         return card
                 print ("Card is not found")
-                self.play(table)
-        def check(Input,list_of_cards):
-                for card in list_of_cards:
-                    if Input == card.value:
-                        return card
-                print ("You can capture")
-                self.play(table)
+                return self.play(table)
     
         def trail(card):
-            if check(card,table.on_table) == card:
-                option != "trail"
             table.on_table.append(card)
             self.hand.remove(card)
     
@@ -42,21 +34,27 @@ class Player:
             card_to_capture = check_cards(input("What card do you want to capture?"),table.on_table)
             if card.value == card_to_capture.value:
                  self.off_hand.append(card)
-                 self.off_hand.append(card_to_capture)
-                 table.on_table.remove(card_to_capture)
                  self.hand.remove(card)
+                 if isinstance(card_to_capture,Card):
+                    self.off_hand.append(card_to_capture)
+                    table.on_table.remove(card_to_capture)
+                 if isinstance(card_to_capture,Build):
+                     self.off_hand += card_to_capture
+                     table.on_table.remove(card_to_capture)
             else:
                 print("The values are not the same")
-                self.play(table)
+                return self.play(table)
+            
         def build(card):
             number_of_cards = int(input("how many cards do you want to use? :"))
             building = []
             while number_of_cards > 0:
                 card_to_build = check_cards(input("with wich card do you want to build?"),table.on_table)
+                number_of_cards -=1
                 building.append(card_to_build)
-                self.hand.remove(card)
-                table.on_table.remove(card_to_build)
-                number_of_cards =-1
+            self.hand.remove(card)
+            table.on_table.remove(card_to_build)
+            
 
             o = Build(card,building)
             table.on_table.append(o)
