@@ -18,27 +18,45 @@ class Table:
             i += 1
     def score(self,plist):
     #Contando el score#
-            loff_hand = []
-            boff_hand = 0
+            cards_amount = []
+            biggest_amount = 0
+            spades_amount = []
+            biggest_spades_amount = 0
             for player in plist:
-                l=0
-                loff_hand.append(len(player.off_hand))
-                club_cards = 0
-                number_of_cards = len(player.off_hand)
-                if loff_hand[l] > boff_hand:
-                    boff_hand = loff_hand[l]
-                    l =+1
-                    if loff_hand.count(boff_hand) == 1:
-                        off_hand_points = loff_hand.index(boff_hand)
+                spades_cards = 0
+                for card in player.off_hand:
+                    if card.symbol == "Spades":
+                        spades_cards =+ 1
+                        if card.value == 2:
+                            player.score +=1
+                    if card.value == 1:
+                        player.score += 1
+                    if card.name =="10_Diamonds":
                         player.score += 2
-                for i in player.off_hand:
-                    if i.symbol == "Spades":
-                        club_cards =+ 1
-                    if i.value == 1 or i.name == "10_Diamonds" or i.name == "2_Spades":
-                        player.score =+ 1
                 player.off_hand = []
-            self.on_table = []
+                
+                spades_amount.append(spades_cards)
+                cards_amount.append(len(player.off_hand))
+                
+                if cards_amount[-1] > biggest_amount:
+                    biggest_amount = cards_amount[-1]
+                
+               
+                if spades_amount[-1] > spades_cards:
+                    spades_cards = spades_amount[-1]
+                
+
+            if cards_amount.count(biggest_amount) == 1:
+                off_hand_points = cards_amount.index(biggest_amount)
+                plist[off_hand_points].score += 2
+                    
+            if spades_amount.count(spades_cards) == 1:
+                spades_points =spades_amount.index(spades_cards)
+                plist[spades_points].score += 2
+
+
+            
+            self.on_table =[]
             self.deck = makeDeck()
             for player in plist:
                 print(player.score,player.name)
-                

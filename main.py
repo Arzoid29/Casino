@@ -8,20 +8,33 @@ if __name__ == '__main__':
     
     
     while True:
-        while True:
-            if table.deck == []:
-                table.score(Player.plist)
-            a = 3
-            table.deal()
-            while a >= 0:
-                for p in Player.plist:
-                    print(table.on_table)
-                    print(player1.hand)
+        for player in Player.plist:
+            if player.score == 21:
+                print(f"The game is over winner is {player.name}")
+        if table.deck == []:
+            table.score(Player.plist)
+        a = 3
+        table.deal()
+        while a >= 0:
+            for p in Player.plist:
+                print("Table")
+                print(table.on_table)
+                print("\n")
+                print("Player Hand")
+                print(player1.hand)
+                print("\n")
     
-                    p.play(table)
-    
-                    print(table.on_table)
-                    print(player1.hand)
-                    print(player1.off_hand)
-                a -= 1
-    
+                p.play(table)
+                print("Table")
+                print(table.on_table)
+                print("\n")
+                print("Player Hand")
+                print(player1.hand)
+                print("\n")
+                print("Player off hand")
+                print(player1.off_hand)
+                print("\n")
+            a -= 1
+    print("Results")
+    for player in plist:
+        print(player.name , player.score)
