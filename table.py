@@ -16,6 +16,9 @@ class Table:
             for player in self.list_of_players:
                 player.hand.append(self.deck.pop())
             i += 1
+    def dealTable(self):
+         for i in range(0,4):
+                self.on_table.append(self.deck.pop())
     def score(self,plist):
     #Contando el score#
             cards_amount = []

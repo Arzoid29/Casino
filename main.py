@@ -10,6 +10,7 @@ if __name__ == '__main__':
     while Status:
         if table.deck == []:
             table.score(Player.plist)
+            table.dealTable()
         a = 3
         table.deal()
         while a >= 0:
