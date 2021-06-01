@@ -62,16 +62,17 @@ class Player:
                 option != "trail"
         
         def options(option):
-            if option == "trail":
+            option = option.lower()
+            if option in "trail":
                 trail(card_playing)
-            elif option =="capture":
+            elif option in "capture":
                 capture(card_playing)
-            elif option == "build":
+            elif option in "build":
                 build(card_playing)
             else:
                 self.play(table)
         
         card_playing = input("what card are you gonna play?")
         card_playing = check_cards(card_playing,self.hand)
-        option = input("What you want to do with the card?(trail),(capture),(build):")
+        option = input("What you want to do with the card?(trail, capture, build):")
         options(option)
