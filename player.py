@@ -10,7 +10,7 @@ class Player:
         self.off_hand = []
         Player.plist.append(self)
     def play(self,table):
-
+#cheking if the card is in the list and cheking if its an existing card#
         def check_cards(Input,list_of_cards):
             try:
                 H = int(Input)
@@ -25,7 +25,7 @@ class Player:
                         return card
                 print ("Card is not found")
                 return self.play(table)
-    
+    #defining the options#
         def trail(card):
             table.on_table.append(card)
             self.hand.remove(card)

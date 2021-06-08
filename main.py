@@ -3,9 +3,10 @@ from table import Table
 
 if __name__ == '__main__':
     player1 = Player("Player1")
+    player2 = Player("Player2")
     table = Table()
     table.list_of_players = Player.plist
-    
+
     Status = True
     while Status:
         if table.deck == []:
@@ -18,8 +19,8 @@ if __name__ == '__main__':
                 print("Table")
                 print(table.on_table)
                 print("\n")
-                print("Player Hand")
-                print(player1.hand)
+                print("Player", Player.plist.index(p),"Hand")
+                print(p.hand)
                 print("\n")
     
                 p.play(table)
@@ -27,12 +28,13 @@ if __name__ == '__main__':
                 print("Table")
                 print(table.on_table)
                 print("\n")
-                print("Player Hand")
-                print(player1.hand)
+                print("Player", Player.plist.index(p),"Hand")
+                print(p.hand)
                 print("\n")
-                print("Player off hand")
-                print(player1.off_hand)
+                print("Player", Player.plist.index(p),"off_Hand")
+                print(p.off_hand)
                 print("\n")
+
             a -= 1
         for player in Player.plist:
             if player.score >= 21:

@@ -9,7 +9,7 @@ class Table:
         for i in range(0,4):
             self.on_table.append(self.deck.pop())
         
-    #Repartir cartas#
+    #dealing cards#
     def deal(self):
         i = 0
         while i < 4:

@@ -1,3 +1,4 @@
+#Build class#
 class Build:
     def __init__(self,hand,on_table):
         self.value = 0
@@ -9,7 +10,7 @@ class Build:
             self.cards.append(x)
 
     def __repr__(self):
-        return f"{self.cards}"
+        return f"{self.value}"
 
 
 

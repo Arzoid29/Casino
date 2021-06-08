@@ -1,3 +1,4 @@
+#Making the deck with a ramdom position#
 from card import Card
 import random as rd
 def makeDeck():
