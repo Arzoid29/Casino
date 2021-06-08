@@ -19,7 +19,7 @@ if __name__ == '__main__':
                 print("Table")
                 print(table.on_table)
                 print("\n")
-                print("Player", Player.plist.index(p),"Hand")
+                print("Player", Player.plist.index(p)+1,"Hand")
                 print(p.hand)
                 print("\n")
     
@@ -28,10 +28,10 @@ if __name__ == '__main__':
                 print("Table")
                 print(table.on_table)
                 print("\n")
-                print("Player", Player.plist.index(p),"Hand")
+                print("Player", Player.plist.index(p)+1,"Hand")
                 print(p.hand)
                 print("\n")
-                print("Player", Player.plist.index(p),"off_Hand")
+                print("Player", Player.plist.index(p)+1,"off_Hand")
                 print(p.off_hand)
                 print("\n")
 
